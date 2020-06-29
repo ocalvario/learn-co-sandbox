@@ -1,14 +1,20 @@
 class UsersController < ApplicationController
 
-  # GET: /use_rs
   get "/users" do
     erb :"/users/index.html"
   end
 
-  # GET: /users/new
-  get "/use_rs/new" do
-    erb :"/use_rs/new.html"
+  get "/signup" do
+    erb :"/users/new.html"
   end
+
+  get "/login" do
+    erb :"users/login.html"
+  end 
+  
+  post "/login" do
+    redirect "/workouts"
+  end 
 
   # POST: /users
   post "/users" do
@@ -22,16 +28,16 @@ class UsersController < ApplicationController
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
-    erb :"/use_rs/edit.html"
+    erb :"/users/edit.html"
   end
 
   # PATCH: /users/5
-  patch "/use_rs/:id" do
-    redirect "/use_rs/:id"
+  patch "/users/:id" do
+    redirect "/users/:id"
   end
 
   # DELETE: /users/5/delete
-  delete "/use_rs/:id/delete" do
-    redirect "/use_rs"
+  delete "/users/:id/delete" do
+    redirect "/users"
   end
 end
